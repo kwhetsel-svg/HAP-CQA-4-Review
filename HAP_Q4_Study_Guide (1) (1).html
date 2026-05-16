@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAP Q4 Study Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap');
+  :root{--bg:#f7f4ef;--ink:#1a1209;--accent:#b5451b;--accent2:#2a5c7a;--gold:#c9961a;--soft:#e8e2d8;--abg:#eef4f8;--green:#2d7a4a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-weight:300;line-height:1.7;padding-bottom:80px}
+  header{background:var(--ink);color:var(--bg);padding:56px 40px 48px;position:relative;overflow:hidden}
+  header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--gold),var(--accent2))}
+  .label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,5vw,3.4rem);font-weight:900;line-height:1.1;max-width:680px}
+  header p{margin-top:14px;opacity:.7;font-size:.93rem;max-width:540px}
+  .hmeta{display:flex;gap:28px;margin-top:22px;flex-wrap:wrap}
+  .hmeta span{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;opacity:.5}
+  .hmeta strong{color:var(--gold);opacity:1}
+  nav{display:flex;flex-wrap:wrap;gap:7px;padding:18px 40px;background:var(--soft);border-bottom:1px solid #d5cfc5;position:sticky;top:0;z-index:100}
+  nav a{text-decoration:none;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent2);padding:5px 11px;border:1px solid var(--accent2);border-radius:2px;transition:all .2s;white-space:nowrap}
+  nav a:hover{background:var(--accent2);color:#fff}
+  main{max-width:900px;margin:0 auto;padding:0 40px}
+  .section{margin-top:62px}
+  .sh{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:9px;margin-bottom:7px}
+  .sn{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--accent);line-height:1;min-width:36px}
+  .st{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700}
+  .sd{font-size:.86rem;opacity:.6;margin-bottom:26px;font-style:italic}
+  .grid{display:grid;gap:15px}
+  .card{background:#fff;border:1px solid #ddd8cf;border-left:4px solid var(--accent);padding:20px 24px;transition:box-shadow .2s}
+  .card:hover{box-shadow:4px 4px 0 var(--soft)}
+  .card.b{border-left-color:var(--accent2)}
+  .card.g{border-left-color:var(--gold)}
+  .card.gr{border-left-color:var(--green)}
+  .ct{font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:.4;margin-bottom:7px}
+  .q{font-weight:400;font-size:1rem;margin-bottom:11px}
+  .q strong{font-weight:700}
+  .btn{background:none;border:1px solid currentColor;cursor:pointer;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);padding:5px 13px;display:inline-flex;align-items:center;gap:7px;font-family:'Source Serif 4',serif;transition:all .2s;border-radius:2px}
+  .btn:hover{background:var(--accent);color:#fff}
+  .card.b .btn{color:var(--accent2)}.card.b .btn:hover{background:var(--accent2);color:#fff}
+  .card.g .btn{color:var(--gold)}.card.g .btn:hover{background:var(--gold);color:#fff}
+  .card.gr .btn{color:var(--green)}.card.gr .btn:hover{background:var(--green);color:#fff}
+  .arr{transition:transform .3s;display:inline-block}
+  .btn.open .arr{transform:rotate(90deg)}
+  .ans{display:none;background:var(--abg);border-left:3px solid var(--accent2);padding:13px 17px;margin-top:13px;font-size:.92rem;line-height:1.65;animation:fi .25s ease}
+  .ans.v{display:block}
+  .ans em{color:var(--accent2);font-style:normal}
+  .ans b{font-weight:700}
+  @keyframes fi{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+  .seq{counter-reset:s;list-style:none;padding:0;margin-top:8px}
+  .seq li{counter-increment:s;display:flex;gap:11px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed #ddd;font-size:.91rem}
+  .seq li:last-child{border-bottom:none}
+  .seq li::before{content:counter(s);min-width:22px;height:22px;background:var(--accent2);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0;border-radius:2px}
+  .tip{background:#fdf6e8;border:1px solid var(--gold);border-left:4px solid var(--gold);padding:14px 19px;margin:0 0 22px;font-size:.88rem}
+  .tl{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:5px}
+  table.ct2{width:100%;border-collapse:collapse;font-size:.86rem;margin-top:9px}
+  table.ct2 th{background:var(--ink);color:var(--bg);padding:7px 11px;text-align:left;font-weight:700}
+  table.ct2 td{padding:7px 11px;border-bottom:1px solid #ddd;vertical-align:top}
+  table.ct2 tr:nth-child(even) td{background:#f9f7f4}
+  .terms{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:11px;margin-top:14px}
+  .term{background:#fff;border:1px solid #ddd8cf;padding:13px 15px;cursor:pointer;transition:box-shadow .15s;user-select:none}
+  .term:hover{box-shadow:3px 3px 0 var(--soft)}
+  .term .w{font-family:'Playfair Display',serif;font-weight:700;font-size:.92rem;color:var(--accent2)}
+  .term .h{font-size:10px;opacity:.35;letter-spacing:1px;text-transform:uppercase;margin-top:3px}
+  .term .d{display:none;font-size:.83rem;margin-top:7px;color:#444;line-height:1.5;border-top:1px solid #eee;padding-top:7px}
+  .term.open .d{display:block}
+  footer{margin-top:80px;padding:28px 40px;background:var(--ink);color:rgba(255,255,255,.4);font-size:.78rem;text-align:center;letter-spacing:1px}
+  @media(max-width:620px){header,nav,main{padding-left:18px;padding-right:18px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="label">Human Anatomy &amp; Physiology · Q4 Exam Prep</div>
+  <h1>Study Guide &amp; Practice Questions</h1>
+  <p>These questions test the same concepts as the exam but ask them in different ways. Master these and you'll be ready for anything thrown at you.</p>
+  <div class="hmeta"><span><strong>10</strong> Topics</span><span><strong>80+</strong> Questions</span><span><strong>Tap</strong> cards to reveal answers</span></div>
+</header>
+<nav>
+  <a href="#s1">Body Basics</a><a href="#s2">Cells</a><a href="#s3">Tissues</a><a href="#s4">Skin</a><a href="#s5">Skeletal</a><a href="#s6">Muscular</a><a href="#s7">Nervous</a><a href="#s8">Cardiovascular</a><a href="#s9">Respiratory</a><a href="#s10">Blood &amp; Immunity</a><a href="#gl">Glossary</a>
+</nav>
+<main>
+
+<!-- ── 01 Body Basics ── -->
+<section class="section" id="s1">
+  <div class="sh"><span class="sn">01</span><span class="st">Body Organization &amp; Directional Terms</span></div>
+  <p class="sd">Directional terms describe relative position — always evaluated in anatomical position (standing, facing forward, palms out).</p>
+  <div class="tip"><div class="tl">🧭 Remember</div>Pairs: anterior/posterior · superior/inferior · medial/lateral · proximal/distal · superficial/deep</div>
+  <div class="grid">
+    <div class="card"><div class="ct">Fill in the blank</div><p class="q">The shoulder is _______ to the elbow, and the elbow is _______ to the shoulder.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">The shoulder is <em>proximal</em> to the elbow; the elbow is <em>distal</em> to the shoulder. Proximal = closer to the point of attachment; distal = farther away.</div></div>
+
+    <div class="card"><div class="ct">True / False + Explain</div><p class="q">True or False: The kneecap is superior to the hip. Explain your reasoning.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>False.</em> Superior means closer to the head. The hip is located above the kneecap, making the hip superior — and the kneecap inferior — to the hip.</div></div>
+
+    <div class="card"><div class="ct">Scenario</div><p class="q">A surgeon notes that the liver is lateral to the stomach, and the stomach is lateral to the spine. Is this consistent? Explain medial vs. lateral.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Yes, this is consistent and illustrates that lateral/medial are relative. <em>Medial</em> = closer to the midline; <em>lateral</em> = farther from the midline. The spine is most medial, the stomach is lateral to the spine, and the liver is lateral to the stomach.</div></div>
+
+    <div class="card"><div class="ct">Positioning</div><p class="q">A patient is placed face-down on an operating table. Name that position. If they roll over, what is the new position?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Face-down = <em>prone</em>. Face-up = <em>supine</em>. Memory trick: supine — your spine touches the surface below you.</div></div>
+
+    <div class="card"><div class="ct">Levels of organization</div><p class="q">List the six levels of structural organization from simplest to most complex.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><b>Chemical → Cellular → Tissue → Organ → Organ System → Organism.</b> At each level, structures acquire new properties their parts alone don't possess.</div></div>
+
+    <div class="card"><div class="ct">Cavities</div><p class="q">What two major body cavities does the diaphragm separate? What organ systems are contained in each?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">The diaphragm separates the <em>thoracic cavity</em> (heart, lungs, esophagus) above from the <em>abdominopelvic cavity</em> (stomach, intestines, liver, kidneys, bladder, reproductive organs) below.</div></div>
+
+    <div class="card"><div class="ct">Core principle</div><p class="q">In anatomy and physiology, what does "structure determines function" mean? Provide an example.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">A part can only perform functions that its physical form allows. Example: the biconcave shape of red blood cells maximizes surface area for oxygen binding by hemoglobin. Structure and function are inseparable in biology.</div></div>
+
+    <div class="card"><div class="ct">Apply the terms</div><p class="q">The nose is _______ and _______ to the ears. (Use two different directional terms.)</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">The nose is <em>medial</em> (closer to the midline) and <em>anterior</em> (frontal surface) to the ears. Other acceptable: the nose is also inferior to the forehead and superior to the mouth.</div></div>
+  </div>
+</section>
+
+<!-- ── 02 Cells ── -->
+<section class="section" id="s2">
+  <div class="sh"><span class="sn">02</span><span class="st">Cell Biology &amp; Membrane Transport</span></div>
+  <p class="sd">Understand how cells maintain homeostasis and how substances move across cell membranes.</p>
+  <div class="grid">
+    <div class="card b"><div class="ct">Define</div><p class="q">What is homeostasis and why is it considered the primary job of every cell?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Homeostasis is the maintenance of a stable internal environment (temperature, pH, ion concentrations, blood sugar, etc.) within narrow limits. Every cell contributes because biochemical reactions essential to life can only function within those specific conditions.</div></div>
+
+    <div class="card b"><div class="ct">Compare</div><p class="q">What is the difference between diffusion and active transport? Which requires energy and why?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>Diffusion</em> is passive — molecules move from high to low concentration with no energy required. <em>Active transport</em> moves molecules against the concentration gradient (low → high), requiring <b>ATP</b> to power carrier proteins because this is thermodynamically unfavorable.</div></div>
+
+    <div class="card b"><div class="ct">Application</div><p class="q">A cell is placed in a hypotonic solution. What happens and why?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">The cell swells (and may lyse). A hypotonic solution has a lower solute concentration than the cell interior. Water moves by <em>osmosis</em> from the less concentrated solution into the more concentrated cell interior, increasing cell volume until it bursts if the membrane cannot stretch enough.</div></div>
+
+    <div class="card b"><div class="ct">Short answer</div><p class="q">Sodium ions are moved across a membrane against their concentration gradient. What process is this, and what does the cell spend to accomplish it?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">This is <em>active transport</em>. The cell spends <em>ATP</em>. The Na⁺/K⁺ pump is the classic example — it pumps 3 Na⁺ out and 2 K⁺ in per ATP molecule used, maintaining the electrochemical gradient essential for nerve and muscle function.</div></div>
+
+    <div class="card b"><div class="ct">Process</div><p class="q">When vesicles form at the cell membrane to bring in a large particle, what is this process called? How does it differ from diffusion?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>Endocytosis</em> (specifically phagocytosis for large particles). Unlike diffusion, endocytosis requires energy (ATP), can move large particles that cannot cross the membrane directly, and involves membrane shape changes to engulf material in a vesicle.</div></div>
+
+    <div class="card b"><div class="ct">Critical thinking</div><p class="q">If a drug blocks all sodium channels in a nerve cell, what would happen to the nerve's ability to transmit signals?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Transmission would stop completely. Sodium channels are essential for <em>depolarization</em> — the first step of an action potential. Without Na⁺ influx, the membrane can never reach threshold and no action potential will fire. This is exactly how local anesthetics (like lidocaine) work.</div></div>
+  </div>
+</section>
+
+<!-- ── 03 Tissues ── -->
+<section class="section" id="s3">
+  <div class="sh"><span class="sn">03</span><span class="st">The Four Tissue Types</span></div>
+  <p class="sd">Identify tissues visually and by description; know each type's function and subtypes.</p>
+  <div class="grid">
+    <div class="card"><div class="ct">Identify by description</div><p class="q">A microscope slide shows large round cells with a thin membrane surrounding what appears to be empty space (the fat was dissolved during preparation). What tissue is this and what are its functions?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>Adipose tissue</em> (connective tissue). Functions: energy storage (triglycerides), thermal insulation, physical cushioning/protection of organs. The large "empty" spaces are where lipid droplets were before processing.</div></div>
+
+    <div class="card"><div class="ct">Identify by description</div><p class="q">A slide shows many small biconcave pink cells with no nucleus, floating in a pale liquid background, with an occasional large cell with a purple-stained lobed nucleus. What tissue type is this?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>Blood</em> — a specialized liquid connective tissue. The small cells are erythrocytes (RBCs), the pale background is plasma, and the larger cell with the purple nucleus is a leukocyte (WBC).</div></div>
+
+    <div class="card"><div class="ct">Function-based</div><p class="q">Which primary tissue type contracts as its major function? Name all three subtypes and classify each as voluntary or involuntary.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>Muscle tissue.</em><table class="ct2"><tr><th>Subtype</th><th>Control</th><th>Location</th></tr><tr><td>Skeletal</td><td>Voluntary</td><td>Attached to skeleton</td></tr><tr><td>Cardiac</td><td>Involuntary</td><td>Heart wall only</td></tr><tr><td>Smooth</td><td>Involuntary</td><td>Organs, blood vessels, airways</td></tr></table></div></div>
+
+    <div class="card"><div class="ct">Connection</div><p class="q">What structure connects epithelial tissue to the connective tissue beneath it, and what is it made of?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">A <em>basement membrane</em> — a thin, noncellular layer of glycoproteins and collagen secreted by both epithelial and connective tissue cells. It anchors epithelium, acts as a selective filter, and provides structural support.</div></div>
+
+    <div class="card"><div class="ct">Compare</div><p class="q">What is the difference between dense regular and dense irregular connective tissue? Where is each found?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>Dense regular</em>: collagen fibers all parallel → maximum strength in one direction. Location: tendons (bone to muscle) and ligaments (bone to bone). <em>Dense irregular</em>: collagen fibers in multiple directions → resists tension from all directions. Location: dermis of skin, organ capsules.</div></div>
+
+    <div class="card"><div class="ct">Special tissue</div><p class="q">What tissue is uniquely designed to stretch dramatically as an organ fills and recoil when it empties? Where is it found?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>Transitional epithelium</em> (urothelium). Found in: urinary bladder, ureters, and part of the urethra. Cells can flatten into a single layer when stretched or pile up into multiple dome-shaped layers when the organ is empty.</div></div>
+
+    <div class="card"><div class="ct">Nervous tissue</div><p class="q">What are the two main cell types in nervous tissue, and what does each do?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>Neurons</em>: generate and transmit electrical signals (action potentials). <em>Neuroglia (glial cells)</em>: support, protect, insulate, and nourish neurons. Glial cells outnumber neurons roughly 10:1 but don't conduct impulses themselves.</div></div>
+  </div>
+</section>
+
+<!-- ── 04 Integumentary ── -->
+<section class="section" id="s4">
+  <div class="sh"><span class="sn">04</span><span class="st">Integumentary System</span></div>
+  <p class="sd">Skin layers, accessory structures (glands, hair, nails), and the system's protective functions.</p>
+  <div class="tip"><div class="tl">📌 Layer Mnemonic (deep → superficial)</div><b>B</b>ad <b>S</b>kin <b>G</b>ives <b>L</b>ittle <b>C</b>omfort = Basale · Spinosum · Granulosum · Lucidum · Corneum</div>
+  <div class="grid">
+    <div class="card g"><div class="ct">Sequence</div><p class="q">A keratinocyte is born in the deepest epidermal layer. Trace its journey upward, naming each layer and what happens at each stage.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><ol class="seq"><li><b>Stratum Basale</b> — produced by mitosis; columnar cells attached to basement membrane.</li><li><b>Stratum Spinosum</b> — pushed upward; spiny projections (desmosomes) provide strength; keratin production begins.</li><li><b>Stratum Granulosum</b> — cells flatten; waterproofing lipids released; nucleus and organelles begin to break down.</li><li><b>Stratum Lucidum</b> — only in thick skin (palms/soles); clear, densely packed dead cells.</li><li><b>Stratum Corneum</b> — outermost; 20–30 layers of dead, fully keratinized cells; shed continuously (desquamation).</li></ol></div></div>
+
+    <div class="card g"><div class="ct">Gland comparison</div><p class="q">Name the four types of skin glands, what each secretes, and its function.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><table class="ct2"><tr><th>Gland</th><th>Secretion</th><th>Function</th></tr><tr><td>Sudoriferous</td><td>Sweat</td><td>Thermoregulation; excrete some wastes</td></tr><tr><td>Sebaceous</td><td>Sebum (oil)</td><td>Lubricate and waterproof skin and hair</td></tr><tr><td>Ceruminous</td><td>Cerumen (earwax)</td><td>Trap debris; protect ear canal</td></tr><tr><td>Mammary</td><td>Milk</td><td>Infant nourishment</td></tr></table></div></div>
+
+    <div class="card g"><div class="ct">Structure & function</div><p class="q">When you're cold, you get goosebumps. What structure causes this, where is it located, and what is its purpose?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">The <em>arrector pili</em> muscle — a tiny smooth muscle running from the dermis to each hair follicle. When it contracts, it pulls the follicle upright, creating a tiny bump (goosebump). Purpose: in fur-covered animals it traps a warm air layer. In humans it is mostly vestigial.</div></div>
+
+    <div class="card g"><div class="ct">Nail anatomy</div><p class="q">A patient loses the tip of their fingernail in an accident. Will the nail grow back? Where exactly does nail production occur?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Yes — as long as the <em>nail root</em> (germinal matrix beneath the skin at the nail's base) is intact, the nail will regrow. The visible nail body and free edge are just densely packed keratinized dead cells. Only root destruction causes permanent loss.</div></div>
+
+    <div class="card g"><div class="ct">Three layers</div><p class="q">Distinguish the epidermis, dermis, and hypodermis by tissue type, vascularity, and key contents.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><table class="ct2"><tr><th>Layer</th><th>Tissue type</th><th>Vascular?</th><th>Key contents</th></tr><tr><td>Epidermis</td><td>Stratified squamous epithelium</td><td>No</td><td>Keratinocytes, melanocytes</td></tr><tr><td>Dermis</td><td>Dense irregular connective</td><td>Yes</td><td>Blood vessels, nerves, hair follicles, glands</td></tr><tr><td>Hypodermis</td><td>Adipose + loose connective</td><td>Yes</td><td>Fat stores; anchors skin to muscle</td></tr></table></div></div>
+
+    <div class="card g"><div class="ct">Burns classification</div><p class="q">A first-degree burn affects only the epidermis; a third-degree burn destroys both the epidermis and dermis. Why is a third-degree burn so much more serious?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Destroying the dermis eliminates: blood vessels (causing fluid/protein loss), nerve endings (explaining why 3rd degree burns are often painless — sensors are gone), hair follicles, and sweat glands. Without the dermis, regeneration cannot occur from below and skin grafting is needed. Infection risk also skyrockets without the barrier.</div></div>
+  </div>
+</section>
+
+<!-- ── 05 Skeletal ── -->
+<section class="section" id="s5">
+  <div class="sh"><span class="sn">05</span><span class="st">Skeletal System</span></div>
+  <p class="sd">Bone anatomy, fracture types and repair, bone classification, skull and facial bones, sutures, movements, and body landmarks.</p>
+  <div class="grid">
+    <div class="card"><div class="ct">Long bone anatomy</div><p class="q">Identify the function of each long bone region: diaphysis, epiphysis, periosteum, medullary cavity, and articular cartilage.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><table class="ct2"><tr><th>Region</th><th>Function</th></tr><tr><td>Diaphysis (shaft)</td><td>Provides leverage and strength; compact bone</td></tr><tr><td>Epiphysis (ends)</td><td>Articulation sites; contains spongy bone/red marrow</td></tr><tr><td>Periosteum</td><td>Outer fibrous covering; bone growth, repair, tendon/ligament attachment</td></tr><tr><td>Medullary cavity</td><td>Contains yellow (fat) marrow in adult long bones</td></tr><tr><td>Articular cartilage</td><td>Hyaline cartilage on joint surfaces; absorbs shock, reduces friction</td></tr></table></div></div>
+
+    <div class="card"><div class="ct">Fracture repair sequence</div><p class="q">A gymnast breaks her radius. Walk through all four stages of bone healing in the correct order.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><ol class="seq"><li><b>Hematoma formation</b> — blood vessels rupture; clot forms; inflammatory chemicals attract repair cells.</li><li><b>Fibrocartilage callus</b> — fibroblasts/chondroblasts invade; soft bridge of fibrocartilage spans the break.</li><li><b>Bony callus ossification</b> — osteoblasts replace fibrocartilage with spongy bone; hard callus forms.</li><li><b>Bone remodeling</b> — osteoclasts remove excess bone; compact bone replaces spongy; original shape restored over months to years.</li></ol></div></div>
+
+    <div class="card"><div class="ct">Classify bones</div><p class="q">Classify each: femur, carpal bones, sternum, vertebra, phalanges, skull parietal plates, patella.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Femur → <em>Long</em>. Carpals → <em>Short</em>. Sternum → <em>Flat</em>. Vertebra → <em>Irregular</em>. Phalanges → <em>Long</em> (miniature). Parietal plates → <em>Flat</em>. Patella → <em>Sesamoid</em> (a special type embedded in tendon; sometimes classified as short or irregular).</div></div>
+
+    <div class="card"><div class="ct">Cranial and facial bones</div><p class="q">Name the four major cranial bones and their locations. Then identify where each skull suture connects bones.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><b>Bones:</b> Frontal (forehead), Parietal ×2 (top/sides), Temporal ×2 (sides/ears), Occipital (back/base).<br><br><b>Sutures:</b> Coronal (frontal ↔ parietals), Sagittal (parietal ↔ parietal, midline), Lambdoidal (parietals ↔ occipital), Squamous (parietals ↔ temporals).</div></div>
+
+    <div class="card"><div class="ct">Facial bones</div><p class="q">Identify the mandible, maxilla, zygomatic, and nasal bones. Which is the only movable bone of the skull?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Mandible (lower jaw) — only movable skull bone. Maxilla (upper jaw/hard palate). Zygomatic (cheekbone). Nasal (bridge of nose — paired). The mandible's mobility allows chewing and speech.</div></div>
+
+    <div class="card"><div class="ct">Movement chart</div><p class="q">Define flexion, extension, abduction, adduction, rotation, inversion, and eversion. Give one real-life example of each.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><table class="ct2"><tr><th>Movement</th><th>Definition</th><th>Example</th></tr><tr><td>Flexion</td><td>Decreases joint angle</td><td>Bending the elbow to pick something up</td></tr><tr><td>Extension</td><td>Increases joint angle</td><td>Straightening the knee</td></tr><tr><td>Abduction</td><td>Away from midline</td><td>Raising arm to the side (lateral raise)</td></tr><tr><td>Adduction</td><td>Toward midline</td><td>Bringing arm back to your side</td></tr><tr><td>Rotation</td><td>Turning around a longitudinal axis</td><td>Shaking your head "no"</td></tr><tr><td>Inversion</td><td>Sole of foot turns inward/medially</td><td>Rolling ankle inward</td></tr><tr><td>Eversion</td><td>Sole of foot turns outward/laterally</td><td>Foot splayed outward</td></tr></table></div></div>
+
+    <div class="card"><div class="ct">Fracture types</div><p class="q">Describe the visual and mechanical characteristics of a greenstick fracture, comminuted fracture, spiral fracture, and compound (open) fracture.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><b>Greenstick</b>: bone bends and partially cracks on one side — like a green twig. Common in children whose bones are more flexible. <b>Comminuted</b>: bone shatters into three or more fragments. <b>Spiral</b>: fracture line spirals along the bone shaft from twisting/torsional force. <b>Compound/Open</b>: bone fragment pierces through the skin — high infection risk.</div></div>
+
+    <div class="card"><div class="ct">Bone identification</div><p class="q">Where are the following bones in the body: femur, patella, calcaneus, humerus, carpals, tarsals, metacarpals, metatarsals?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Femur → thigh (longest/strongest bone). Patella → kneecap. Calcaneus → heel. Humerus → upper arm. Carpals → wrist (8 bones). Tarsals → ankle/hindfoot (7 bones). Metacarpals → palm. Metatarsals → foot (similar position to metacarpals but in the foot).</div></div>
+  </div>
+</section>
+
+<!-- ── 06 Muscular ── -->
+<section class="section" id="s6">
+  <div class="sh"><span class="sn">06</span><span class="st">Muscular System</span></div>
+  <p class="sd">Muscle organization, sliding filament theory, neuromuscular physiology, and muscle fatigue.</p>
+  <div class="grid">
+    <div class="card b"><div class="ct">Organization hierarchy</div><p class="q">Describe the structural organization of skeletal muscle from the whole muscle down to the individual protein filaments.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Whole muscle (wrapped in <em>epimysium</em>) → Fascicles (wrapped in <em>perimysium</em>) → Muscle fibers/cells (wrapped in <em>endomysium</em>) → Myofibrils → Sarcomeres (functional units) → Actin and myosin filaments.</div></div>
+
+    <div class="card b"><div class="ct">Sliding filament theory</div><p class="q">Step-by-step: how does a muscle fiber contract from the nerve signal to the shortening of the sarcomere?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><ol class="seq"><li>Nerve impulse reaches the neuromuscular junction; <b>ACh</b> is released into the synaptic cleft.</li><li>ACh binds receptors on the muscle cell membrane → action potential generated.</li><li>Action potential travels down T-tubules → <b>Ca²⁺</b> released from sarcoplasmic reticulum.</li><li>Ca²⁺ binds <b>troponin</b> → shifts <b>tropomyosin</b> off actin binding sites.</li><li>Myosin heads bind actin → <b>cross-bridges</b> form.</li><li>Power stroke: myosin heads pivot, pulling actin filaments toward center → sarcomere shortens.</li><li>ATP binds myosin head → detachment. Cycle repeats while Ca²⁺ and ATP are available.</li></ol></div></div>
+
+    <div class="card b"><div class="ct">Muscle fatigue</div><p class="q">Why does muscle fatigue occur after prolonged or intense exercise? Name all contributing factors.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Three simultaneous factors: 1) <b>ATP depletion</b> — no fuel for myosin detachment or cross-bridge cycling. 2) <b>Lactic acid buildup</b> — anaerobic respiration during intense exercise drops cellular pH, impairing enzyme function. 3) <b>ACh depletion</b> — neurotransmitter at the NMJ runs low, weakening the nerve signal to the muscle.</div></div>
+
+    <div class="card b"><div class="ct">Regulatory proteins</div><p class="q">What are the roles of troponin and tropomyosin in muscle contraction? How does calcium "unlock" contraction?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">At rest, <em>tropomyosin</em> physically blocks myosin-binding sites on actin, preventing cross-bridge formation. <em>Troponin</em> holds tropomyosin in position. When Ca²⁺ binds troponin, troponin changes shape → pulls tropomyosin aside → binding sites exposed → contraction begins. Removing Ca²⁺ reverses this, causing relaxation.</div></div>
+
+    <div class="card b"><div class="ct">Functions</div><p class="q">Skeletal muscle produces movement — but name two other important whole-body functions it serves.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><b>Maintaining posture</b>: constant low-level contractions of postural muscles (especially along the spine) keep the body upright against gravity. <b>Thermogenesis (heat production)</b>: muscle contraction releases heat as a byproduct — this is the main reason we shiver when cold.</div></div>
+
+    <div class="card b"><div class="ct">Involuntary control</div><p class="q">Which muscle tissue types are controlled involuntarily, and where is each found?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>Cardiac muscle</em>: involuntary; found only in the heart wall. <em>Smooth muscle</em>: involuntary; found in walls of hollow organs (stomach, intestines, bladder, blood vessels, airways). <em>Skeletal muscle</em> is voluntary. Note: the diaphragm is skeletal but can be partially overridden involuntarily by brainstem control.</div></div>
+  </div>
+</section>
+
+<!-- ── 07 Nervous ── -->
+<section class="section" id="s7">
+  <div class="sh"><span class="sn">07</span><span class="st">Nervous System</span></div>
+  <p class="sd">Action potentials, brain lobes, special brain regions, and vision.</p>
+  <div class="tip"><div class="tl">⚡ Action Potential Sequence</div>Resting potential (−70 mV, Na⁺/K⁺ pump active) → <b>Depolarization</b> (Na⁺ floods in) → <b>Repolarization</b> (K⁺ flows out) → <b>Refractory period</b> (pump restores ion balance)</div>
+  <div class="grid">
+    <div class="card gr"><div class="ct">Resting potential</div><p class="q">At resting potential, what maintains the −70 mV charge inside the neuron? What happens if this pump is blocked?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">The <em>Na⁺/K⁺ pump</em> (using ATP) continuously moves 3 Na⁺ out and 2 K⁺ in, maintaining a net negative interior. If the pump is blocked: ion gradients dissipate, resting potential is lost, the neuron cannot repolarize, and repeated action potential firing ceases — essentially silencing the nerve.</div></div>
+
+    <div class="card gr"><div class="ct">Depolarization</div><p class="q">During depolarization, which ion and which type of channel are involved? In which direction does the ion move?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Voltage-gated <em>sodium (Na⁺) channels</em> open. Na⁺ rushes <em>into</em> the cell, driven by both its concentration gradient (high outside) and the electrical gradient (negative interior attracts positive ions). This makes the interior positive — depolarization.</div></div>
+
+    <div class="card gr"><div class="ct">Refractory period</div><p class="q">What specific role does the Na⁺/K⁺ pump play during the refractory period, and why does this period matter for how nerves function?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">During the refractory period the Na⁺/K⁺ pump actively restores resting ion concentrations using ATP. This matters for two reasons: 1) it allows the neuron to fire again, and 2) it ensures action potentials travel in only one direction — the region just behind a wave of depolarization cannot immediately fire again.</div></div>
+
+    <div class="card gr"><div class="ct">Brain lobes</div><p class="q">Match: which brain lobe handles vision? Which controls voluntary movement and higher reasoning? Which processes hearing and language comprehension?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Vision → <em>Occipital lobe</em> (posterior). Voluntary movement + higher reasoning → <em>Frontal lobe</em> (anterior). Hearing + language comprehension → <em>Temporal lobe</em> (sides). Sensory integration (touch, pressure) → <em>Parietal lobe</em> (top/posterior).</div></div>
+
+    <div class="card gr"><div class="ct">Language areas</div><p class="q">Patient A can understand everything you say but cannot produce fluent speech. Patient B speaks fluently but their words make no sense. Which brain area is damaged in each?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Patient A: <em>Broca's area</em> (frontal lobe) — Broca's aphasia; understanding is intact, production is broken. Patient B: <em>Wernicke's area</em> (temporal lobe) — Wernicke's aphasia; they produce "word salad" because comprehension is lost.</div></div>
+
+    <div class="card gr"><div class="ct">Limbic system</div><p class="q">A traumatic brain injury patient shows no fear response and is unable to form emotional memories. What structure was likely damaged, and what system does it belong to?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">The <em>amygdala</em>, part of the limbic system. It processes emotions — especially fear and aggression — and assigns emotional significance to memories. Bilateral amygdala damage produces the condition seen in Urbach-Wiethe disease: the person literally cannot feel fear.</div></div>
+
+    <div class="card gr"><div class="ct">Vision disorders</div><p class="q">Compare myopia and hyperopia: what structural difference in the eyeball causes each, and what does each person see clearly?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><table class="ct2"><tr><th></th><th>Myopia (nearsighted)</th><th>Hyperopia (farsighted)</th></tr><tr><td>Eyeball</td><td>Too long</td><td>Too short</td></tr><tr><td>Focal point</td><td>In front of retina</td><td>Behind retina</td></tr><tr><td>Clear vision</td><td>Near objects</td><td>Far objects</td></tr><tr><td>Lens correction</td><td>Concave (diverging)</td><td>Convex (converging)</td></tr></table></div></div>
+  </div>
+</section>
+
+<!-- ── 08 Cardiovascular ── -->
+<section class="section" id="s8">
+  <div class="sh"><span class="sn">08</span><span class="st">Cardiovascular System</span></div>
+  <p class="sd">Heart anatomy, blood flow, valves, and blood typing.</p>
+  <div class="grid">
+    <div class="card"><div class="ct">Complete blood flow</div><p class="q">Starting with deoxygenated blood returning from the body, trace the complete path through both sides of the heart, naming every chamber and valve in order.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><ol class="seq"><li>Deoxygenated blood arrives via vena cavae → <b>Right atrium</b></li><li>→ <b>Tricuspid valve</b> → <b>Right ventricle</b></li><li>→ <b>Pulmonary semilunar valve</b> → Pulmonary artery → Lungs</li><li>Gas exchange: CO₂ out, O₂ in → Pulmonary veins → <b>Left atrium</b></li><li>→ <b>Bicuspid (mitral) valve</b> → <b>Left ventricle</b></li><li>→ <b>Aortic semilunar valve</b> → Aorta → Body</li></ol></div></div>
+
+    <div class="card"><div class="ct">Valve function</div><p class="q">What is the general purpose of heart valves? Distinguish between the atrioventricular (AV) valves and the semilunar valves.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Valves prevent backflow, ensuring one-directional blood flow. <em>AV valves</em> (tricuspid on the right; bicuspid/mitral on the left) prevent backflow from ventricles into atria during ventricular contraction. <em>Semilunar valves</em> (pulmonary and aortic) prevent backflow from arteries into ventricles after ventricular contraction.</div></div>
+
+    <div class="card"><div class="ct">Backflow prevention</div><p class="q">What specific valve prevents blood from flowing back into the right ventricle after it has been pumped out? What about the left ventricle?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Right ventricle → <em>Pulmonary semilunar valve</em>. Left ventricle → <em>Aortic semilunar valve</em>. Both are semilunar valves that close when ventricular pressure drops below arterial pressure.</div></div>
+
+    <div class="card"><div class="ct">Blood typing scenario</div><p class="q">A Type O patient receives Type A blood. Describe in molecular terms what goes wrong.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Type O individuals have anti-A AND anti-B antibodies in their plasma. The donor's Type A RBCs carry A antigens. The recipient's anti-A antibodies bind those antigens → <em>agglutination</em> (clumping) → complement activation and <em>hemolysis</em> (RBC destruction) → potentially fatal transfusion reaction.</div></div>
+
+    <div class="card"><div class="ct">Anti-serum test</div><p class="q">Anti-A serum is added to a blood sample and it agglutinates. Anti-B serum causes no reaction. What blood type is the sample?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">The sample is <em>Type A</em>. It has A antigens (reacts with Anti-A) but no B antigens (no reaction with Anti-B). If both antisera caused agglutination it would be AB; if neither, it would be O.</div></div>
+
+    <div class="card"><div class="ct">Universal donor/recipient</div><p class="q">Why is Type O considered the universal donor? Why is Type AB the universal plasma donor?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>Type O</em>: RBCs have no A or B antigens, so no recipient's antibodies can attack them. <em>Type AB plasma</em>: AB individuals have no anti-A or anti-B antibodies in their plasma, so their plasma won't attack any recipient's RBCs. These are different concepts — whole blood vs. plasma donation.</div></div>
+  </div>
+</section>
+
+<!-- ── 09 Respiratory ── -->
+<section class="section" id="s9">
+  <div class="sh"><span class="sn">09</span><span class="st">Respiratory System</span></div>
+  <p class="sd">Breathing mechanics (pressure-volume relationships), lung volumes, gas exchange, and airway anatomy.</p>
+  <div class="grid">
+    <div class="card g"><div class="ct">Inspiration mechanics</div><p class="q">Explain why air flows into the lungs during inspiration using the relationship between volume and pressure.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Diaphragm and external intercostals <b>contract</b> → thoracic cavity volume <b>increases</b> → by Boyle's Law, lung pressure <b>decreases</b> below atmospheric → air flows in from high pressure (atmosphere) to low pressure (lungs). Inspiration is an active process requiring muscle work.</div></div>
+
+    <div class="card g"><div class="ct">Expiration mechanics</div><p class="q">Fill in the blanks: Muscle _______ causes a _______ in lung volume, which causes a _______ in lung pressure, which causes air to rush _______ (inspiration/expiration).</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Muscle <em>relaxation</em> → <em>decrease</em> in lung volume → <em>increase</em> in lung pressure → air rushes <em>out</em> = <b>expiration</b>. At rest this is passive (no muscle contraction needed); during exercise, accessory muscles actively compress the thorax to force more air out.</div></div>
+
+    <div class="card g"><div class="ct">Lung volumes</div><p class="q">Define tidal volume, vital capacity, and residual volume. How do the last two relate to total lung capacity?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>Tidal volume</em>: air moved per normal breath (~500 mL). <em>Vital capacity</em>: maximum volume that can be forcibly exhaled after maximum inhalation. <em>Residual volume</em>: air remaining in lungs after maximum exhalation (keeps alveoli from collapsing). <b>Total Lung Capacity = Vital Capacity + Residual Volume.</b></div></div>
+
+    <div class="card g"><div class="ct">Gas exchange</div><p class="q">How does O₂ move from alveoli into the blood, and how does CO₂ move the opposite way? Name the driving force and vessels involved.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Both gases move by <em>diffusion</em> along their partial pressure gradients — from high partial pressure to low. O₂: alveoli (high pO₂) → <em>capillaries</em> (low pO₂). CO₂: capillaries (high pCO₂) → alveoli (low pCO₂), then exhaled. The thin alveolar walls (one cell thick) and the dense capillary network maximize diffusion efficiency.</div></div>
+
+    <div class="card g"><div class="ct">Airway protection</div><p class="q">What structure prevents food and liquid from entering the trachea during swallowing? What happens if it malfunctions?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">The <em>epiglottis</em> — a leaf-shaped flap of elastic cartilage at the larynx entrance. During swallowing, the larynx rises, pushing against the epiglottis, which folds down over the glottis (tracheal opening). Malfunction: food/liquid enters the airway → choking, or repeated small aspirations → aspiration pneumonia.</div></div>
+
+    <div class="card g"><div class="ct">Diaphragm</div><p class="q">The diaphragm is the primary breathing muscle. What tissue type is it, and how is its control unique compared to other skeletal muscles?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">The diaphragm is <em>skeletal muscle tissue</em>. Uniquely, it is controlled both involuntarily (by the respiratory centers in the medulla oblongata and pons of the brainstem — you breathe even when unconscious) and voluntarily (you can consciously hold your breath or breathe deeply). Most skeletal muscle is purely voluntary.</div></div>
+
+    <div class="card g"><div class="ct">Pathway of air</div><p class="q">List the structures air passes through from the nose to the alveoli in order.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><ol class="seq"><li>Nasal cavity (filters, warms, humidifies)</li><li>Pharynx (throat — shared with digestive system)</li><li>Larynx (voice box; epiglottis guards entry)</li><li>Trachea (windpipe; C-shaped cartilage rings)</li><li>Primary bronchi (right and left)</li><li>Secondary and tertiary bronchi</li><li>Bronchioles (no cartilage; smooth muscle walls)</li><li>Alveoli (gas exchange)</li></ol></div></div>
+  </div>
+</section>
+
+<!-- ── 10 Blood & Immunity ── -->
+<section class="section" id="s10">
+  <div class="sh"><span class="sn">10</span><span class="st">Blood, Hemostasis &amp; Immune System</span></div>
+  <p class="sd">Blood components, stopping bleeding, immunity types, fever, and pathogen classification.</p>
+  <div class="grid">
+    <div class="card b"><div class="ct">Blood components</div><p class="q">What is hemoglobin, and how does it differ from hematocrit and from erythrocytes?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>Hemoglobin</em>: iron-containing protein inside RBCs that binds O₂ (and some CO₂) — a molecule. <em>Erythrocytes</em>: the red blood cells themselves that contain hemoglobin — a cell. <em>Hematocrit</em>: a lab measurement — the percentage of total blood volume made up of RBCs (normal: ~45% male, ~40% female) — a ratio.</div></div>
+
+    <div class="card b"><div class="ct">Hemostasis sequence</div><p class="q">A knife cuts a blood vessel. Walk through all three stages of hemostasis in order, and identify which is temporary vs. permanent.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><ol class="seq"><li><b>Vascular spasm</b> — damaged vessel constricts reflexively. Fastest but most temporary — lasts minutes.</li><li><b>Platelet plug formation</b> — platelets adhere, become activated, aggregate at the wound. Temporary mechanical seal.</li><li><b>Coagulation</b> — clotting factor cascade activates; fibrinogen → fibrin mesh traps RBCs → permanent stable clot.</li></ol></div></div>
+
+    <div class="card b"><div class="ct">Immunity comparison</div><p class="q">Compare innate and adaptive immunity across three dimensions: specificity, speed of response, and immunological memory.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><table class="ct2"><tr><th></th><th>Innate</th><th>Adaptive</th></tr><tr><td>Specificity</td><td>Non-specific (same response to all pathogens)</td><td>Highly specific (tailored to each antigen)</td></tr><tr><td>Speed</td><td>Immediate (minutes to hours)</td><td>Slow first time (days); faster with memory</td></tr><tr><td>Memory</td><td>None</td><td>Yes — memory cells respond faster on re-exposure</td></tr></table></div></div>
+
+    <div class="card b"><div class="ct">Fever pathway</div><p class="q">Trace the events from bacterial infection to fever, identifying the cells, the chemical messengers, and the specific brain structure involved.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><ol class="seq"><li>Bacteria enter the body.</li><li>Macrophages (WBCs) detect them and release <b>pyrogens</b> (e.g., interleukin-1).</li><li>Pyrogens travel via blood to the <b>hypothalamus</b> — the brain's thermostat.</li><li>The hypothalamus raises the temperature set point.</li><li>Body generates heat: shivering, vasoconstriction → <b>fever</b>. Fever speeds immune activity and inhibits many pathogens.</li></ol></div></div>
+
+    <div class="card b"><div class="ct">Classify pathogens</div><p class="q">Classify each pathogen as bacterium, virus, fungus, protist, or worm: tetanus, athlete's foot, malaria, rabies, pinworms.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">Tetanus → <em>Bacterium</em>. Athlete's foot → <em>Fungus</em>. Malaria → <em>Protist</em> (Plasmodium). Rabies → <em>Virus</em>. Pinworms → <em>Worm</em> (helminth). Treatment varies dramatically by type: antibiotics for bacteria, antivirals for viruses, antifungals for fungi, antiparasitics for protists/worms.</div></div>
+
+    <div class="card b"><div class="ct">Innate defenses</div><p class="q">Sort these into innate or adaptive immunity: skin as a barrier, antibody production, phagocytosis by neutrophils, fever, T-cell attack on infected cells, natural killer cells.</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans"><em>Innate</em>: skin/surface barriers, phagocytosis by neutrophils, fever, natural killer (NK) cells. <em>Adaptive</em>: antibody production (B-cell/humoral response), T-cell (cytotoxic) attack on infected cells. NK cells are innate because they don't need to recognize specific antigens — they attack any cell displaying stress markers.</div></div>
+
+    <div class="card b"><div class="ct">Clinical thinking</div><p class="q">A patient takes a medication that blocks platelet aggregation (like aspirin). Which step of hemostasis is most affected, and what is the clinical risk?</p><button class="btn" onclick="T(this)"><span class="arr">▶</span> Reveal</button><div class="ans">The <em>platelet plug formation</em> step is impaired. Clinical risk: minor cuts bleed longer than normal because the temporary seal can't form effectively. This is intentionally used therapeutically to prevent unwanted clots (strokes, heart attacks) — but creates risk of excessive bleeding with injury or surgery.</div></div>
+  </div>
+</section>
+
+<!-- ── GLOSSARY ── -->
+<section class="section" id="gl">
+  <div class="sh"><span class="sn">✦</span><span class="st">Quick-Flip Glossary</span></div>
+  <p class="sd">Tap any card to reveal the definition. Use as flash cards for last-minute review.</p>
+  <div class="terms">
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Anterior</div><div class="h">tap to flip</div><div class="d">Front surface of the body.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Posterior</div><div class="h">tap to flip</div><div class="d">Back surface of the body.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Superior</div><div class="h">tap to flip</div><div class="d">Toward the head; above.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Inferior</div><div class="h">tap to flip</div><div class="d">Toward the feet; below.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Medial</div><div class="h">tap to flip</div><div class="d">Closer to the body's midline.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Lateral</div><div class="h">tap to flip</div><div class="d">Farther from the body's midline.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Proximal</div><div class="h">tap to flip</div><div class="d">Closer to the point of attachment or trunk.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Distal</div><div class="h">tap to flip</div><div class="d">Farther from the point of attachment or trunk.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Homeostasis</div><div class="h">tap to flip</div><div class="d">Maintenance of a stable internal body environment.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Diffusion</div><div class="h">tap to flip</div><div class="d">Passive movement of molecules from high → low concentration; no ATP needed.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Active Transport</div><div class="h">tap to flip</div><div class="d">Movement against concentration gradient; requires ATP.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Stratum Basale</div><div class="h">tap to flip</div><div class="d">Deepest epidermal layer; site of keratinocyte mitosis.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Stratum Corneum</div><div class="h">tap to flip</div><div class="d">Outermost layer; 20–30 layers of dead keratinized cells.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Sudoriferous gland</div><div class="h">tap to flip</div><div class="d">Sweat gland; thermoregulation and minor excretion.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Sebaceous gland</div><div class="h">tap to flip</div><div class="d">Secretes sebum (oil) to lubricate skin and hair.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Arrector pili</div><div class="h">tap to flip</div><div class="d">Smooth muscle attached to hair follicle; contracts to cause goosebumps.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Periosteum</div><div class="h">tap to flip</div><div class="d">Dense fibrous membrane covering bone; bone growth and repair.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Diaphysis</div><div class="h">tap to flip</div><div class="d">The shaft of a long bone; compact bone.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Epiphysis</div><div class="h">tap to flip</div><div class="d">Rounded ends of a long bone (proximal or distal).</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Articular cartilage</div><div class="h">tap to flip</div><div class="d">Hyaline cartilage on joint surfaces; absorbs shock, reduces friction.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Adduction</div><div class="h">tap to flip</div><div class="d">Toward the midline. "Add to the body."</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Abduction</div><div class="h">tap to flip</div><div class="d">Away from the midline. "Abduct = take away."</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Sarcomere</div><div class="h">tap to flip</div><div class="d">Functional unit of muscle; between two Z-lines; contains actin and myosin.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Cross-bridge</div><div class="h">tap to flip</div><div class="d">Bond formed when myosin head attaches to actin during contraction.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">ACh (acetylcholine)</div><div class="h">tap to flip</div><div class="d">Neurotransmitter released at neuromuscular junction to trigger muscle contraction.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Troponin</div><div class="h">tap to flip</div><div class="d">Protein that binds Ca²⁺ to shift tropomyosin and expose actin binding sites.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Tropomyosin</div><div class="h">tap to flip</div><div class="d">Protein that covers actin binding sites at rest, preventing contraction.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Depolarization</div><div class="h">tap to flip</div><div class="d">Na⁺ rushes into neuron; interior becomes positive; action potential fires.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Repolarization</div><div class="h">tap to flip</div><div class="d">K⁺ flows out; membrane returns to negative interior charge.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Amygdala</div><div class="h">tap to flip</div><div class="d">Limbic structure processing emotions and emotional memory (fear, aggression).</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Broca's area</div><div class="h">tap to flip</div><div class="d">Frontal lobe region for speech production.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Wernicke's area</div><div class="h">tap to flip</div><div class="d">Temporal lobe region for language/speech comprehension.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Bicuspid valve</div><div class="h">tap to flip</div><div class="d">Between left atrium and left ventricle; 2 cusps; also called mitral valve.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Tricuspid valve</div><div class="h">tap to flip</div><div class="d">Between right atrium and right ventricle; 3 cusps.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Hemoglobin</div><div class="h">tap to flip</div><div class="d">Iron-containing protein in RBCs that binds and transports oxygen.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Hematocrit</div><div class="h">tap to flip</div><div class="d">% of blood volume occupied by red blood cells (~40–45% normal).</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Epiglottis</div><div class="h">tap to flip</div><div class="d">Cartilage flap that covers the trachea during swallowing.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Alveoli</div><div class="h">tap to flip</div><div class="d">Tiny air sacs in lungs; site of gas exchange with capillaries.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Vital capacity</div><div class="h">tap to flip</div><div class="d">Max air forcibly exhaled after max inhalation. TC = VC + RV.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Residual volume</div><div class="h">tap to flip</div><div class="d">Air always remaining in lungs; cannot be exhaled; prevents alveolar collapse.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Platelet plug</div><div class="h">tap to flip</div><div class="d">Temporary hemostatic barrier; step 2 of hemostasis.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Pyrogens</div><div class="h">tap to flip</div><div class="d">Fever-inducing chemicals from WBCs; act on the hypothalamus.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Myopia</div><div class="h">tap to flip</div><div class="d">Nearsightedness; eyeball too long; focal point falls in front of retina.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Hyperopia</div><div class="h">tap to flip</div><div class="d">Farsightedness; eyeball too short; focal point falls behind retina.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Transitional epithelium</div><div class="h">tap to flip</div><div class="d">Stretchy epithelium lining urinary bladder; accommodates large volume changes.</div></div>
+    <div class="term" onclick="this.classList.toggle('open')"><div class="w">Basement membrane</div><div class="h">tap to flip</div><div class="d">Thin noncellular layer anchoring epithelium to underlying connective tissue.</div></div>
+  </div>
+</section>
+</main>
+
+<footer>HAP Q4 Exam Study Guide · These questions approach the same concepts from different angles — master the concepts, not just the wording.</footer>
+
+<script>
+function T(btn){
+  btn.classList.toggle('open');
+  const a=btn.nextElementSibling;
+  a.classList.toggle('v');
+  btn.querySelector('.arr').textContent=a.classList.contains('v')?'▼':'▶';
+  const nodes=btn.childNodes;
+  nodes[nodes.length-1].textContent=a.classList.contains('v')?' Hide':' Reveal';
+}
+</script>
+</body>
+</html>
